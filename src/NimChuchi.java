@@ -24,7 +24,7 @@ public class NimChuchi {
     private void printTable(){
         String aux = null;
         Stack<String> stack= null;
-        for (int i = 5 ; i>=0 ; i--){
+        for (int i = 3 ; i>=0 ; i--){
             for(int j = 0 ; j<3 ; j++ ){
                 stack = tabla.get(j);
                 if(stack.size()>i)
@@ -40,5 +40,28 @@ public class NimChuchi {
         }
 
 
+    }
+
+
+    public boolean gameOver(){
+        for(Stack<String> stack : tabla)
+            if(!stack.isEmpty())
+                return false;
+
+        return true;
+    }
+
+
+    public void jugada(char col , int cantidad){
+        int columna = col-'A';
+        Stack<String> stack = tabla.get(columna);
+        for(int i = 0 ; i<cantidad ; i++)
+            stack.pop();
+
+        printTable();
+    }
+
+    public int getColumn(char col){
+        return tabla.get(col-'A').size();
     }
 }
