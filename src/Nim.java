@@ -1,29 +1,42 @@
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+
 public class Nim {
-    private List<Stack<String>> tabla ;
-    private static final String pieza = "[*]";
+    private int [] tabla;
+
 
 
     //inicia juego
     public Nim() {
-        tabla = new ArrayList<Stack<String>>(3);
-        for (int i = 0; i < 3; i++) {
-            tabla.add(new Stack<>());
-            for(int j = i ; j<3 ; j++){
-                Stack<String> columna = tabla.get(i);
-                columna.push(pieza);
-            }
-        }
 
-
-
-
-
+        tabla = new int[3];
+        for(int i = 0 ; i<3 ; i++)
+           tabla[i] = i+1;
+        printTable();
     }
+
+
+
+    private void printTable(){
+        char pila = 'A';
+        for(int i = 0 ; i<3 ; i++)
+            System.out.print((pila+i) + ":" + tabla[i]);
+    }
+
+
+    public boolean gameOver(){
+        for(int i = 0 ; i<3 ; i++)
+            if(tabla[i] >0 )
+                return false;
+        return true;
+    }
+
+
+    public void jugada(char pila , int cantidad){
+        tabla[pila - 'A'] -= cantidad;
+        printTable();
+    }
+
 
 
 }
