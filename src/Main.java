@@ -10,9 +10,9 @@ public class Main {
         jugador1 = in.nextLine();
         System.out.println("Jugador 2, ingrese su nombre: ");
         jugador2 = in.nextLine();
+        NimChuchi juego = new NimChuchi();
 
-
-        Nim juego = new Nim();
+       /* Nim juego = new Nim();
         char pila = 0;
         int cantidad = 0;
         while(true){
@@ -35,7 +35,7 @@ public class Main {
                 System.out.println(jugador1 + ", ya no quedan contadores, asiq que... Ganaste!");
                 break;
             }
-        }
+        }*/
     }
 
 
