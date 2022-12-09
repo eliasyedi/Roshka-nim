@@ -9,9 +9,9 @@ public class Nim {
     //inicia juego
     public Nim() {
 
-        tabla = new int[3];
+        this.tabla = new int[3];
         for(int i = 0 ; i<3 ; i++)
-           tabla[i] = i+1;
+           this.tabla[i] = i+1;
         printTable();
     }
 
@@ -19,22 +19,31 @@ public class Nim {
 
     private void printTable(){
         char pila = 'A';
-        for(int i = 0 ; i<3 ; i++)
-            System.out.print((pila+i) + ":" + tabla[i]);
+        for(int i = 0 ; i<3 ; i++){
+            System.out.print(pila + ":" + this.tabla[i] + "  ");
+            pila ++;
+        }
+        System.out.println();
     }
 
 
     public boolean gameOver(){
-        for(int i = 0 ; i<3 ; i++)
-            if(tabla[i] >0 )
+        for(int i = 0 ; i < 3 ; i++){
+            if(this.tabla[i] > 0 )
                 return false;
+        }
         return true;
     }
 
 
     public void jugada(char pila , int cantidad){
-        tabla[pila - 'A'] -= cantidad;
+        this.tabla[pila - 'A'] -= cantidad;
         printTable();
+    }
+
+
+    public int getColumn(char columna){
+        return this.tabla[columna- 'A'];
     }
 
 
